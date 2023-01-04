@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PITCh designer 2.0 is a free online tool to design sgRNA and microhomologies for gene knock-in.">
+    <meta name='author' content='Kazuki Nakamae'>
+
+
+    <title>PITCh KnockIn | PITCh designer 2.0</title>
+    <link rel="shortcut icon" href="images/SMGlogo.ico">
+
+
+    <!--Loading CSS & Javascript files--------------------------------------------->
+
+    <!--html5有効化-->
+    <!--[if It IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!--汎用ライブラリ-->
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/PITChdesigner.css">
+    <link rel="stylesheet" href="css/vis-timeline-graph2d.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- JS -->
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vis.min.js"></script>
+
+    <!--PITCh法のための配列情報構築ライブラリ-->
+    <script src="js/knockinjs-v1.1.js"></script>
+    <!--JS版oligotmライブラリ-->
+    <script src="js/oligotm.js"></script>
+    <!--ジェノタイピング用のビュアーライブラリ-->
+    <script src="js/viewGenomePrimers.js"></script>
+    <!--PDF作成ライブラリ-->
+    <script src="js/pdfmake.min.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <!--プロトコールPDF出力クラス-->
+    <script src="js/writeProtocol.js"></script>
+    <!--html5動的処理javascript file-->
+    <script src="js/main.js"></script>
+    <!--入力フォーム動的処理javascript file-->
+    <script src="js/species.js"></script>
+</head>
+
+<body>
+
+    <!--Navigation------------------------------------------------------------------>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+                <a class="navbar-brand topnav" href="./index.html">PITCh KnockIn</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="./about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="./index.html">PITCh designer 2.0</a>
+                    </li>
+                    <li>
+                        <a href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!--Title---------------------------------------------------------------------->
+
+    <div class="body-pageheader img-responsive">
+        <div class="container">
+            <h1>PITCh designer 2.0</h1>
+            <p class="lead">
+                A free online tool to design sgRNA and microhomologies for gene knock-in.
+            </p>
+        </div>
+    </div>
+
+    <!--Citation Infomation-------------------------------------------------------->
+
+    <div class="container">
+        <div class="container">
+            <h3>Citation information</h3>
+            <h4>PITCh designer (previous version : version 1.0):</h4>
+            <div class="container">
+                <ul>
+                    <li><a href="http://dx.doi.org/10.1080/21655979.2017.1313645" target="_blank">Nakamae, Kazuki, et al. "Establishment of expanded and streamlined pipeline of PITCh knock-in - a web-based design tool for MMEJ-mediated gene knock-in, PITCh designer, and the variations of PITCh, PITCh-TG and PITCh-KIKO."<i>Bioengineered</i> (2017).</a></li>
+                </ul>
+                Designing JavaScript library : <a href="https://github.com/Kazuki-Nakamae/public/tree/master/KnockIn.js" target="_blank">KnockIn.js</a>
+            </div>
+            <h4>PITCh systems:</h4>
+            <div class="container">
+                <ul>
+                    <li><a href="http://www.nature.com/ncomms/2014/141120/ncomms6560/full/ncomms6560.html" target="_blank">Nakade, Shota, et al. "Microhomology-mediated end-joining-dependent integration of donor DNA in cells and animals using TALENs and CRISPR/Cas9." <i>Nature communications</i> <b>5</b> (2014).</a></li>
+                    <li><a href="http://www.nature.com/nprot/journal/v11/n1/abs/nprot.2015.140.html" target="_blank">Sakuma, Tetsushi, et al. "MMEJ-assisted gene knock-in using TALENs and CRISPR-Cas9 with the PITCh systems." <i>Nature protocols</i> <b>11.1</b> (2016): 118-133.</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <h5>Visit the old version of PITCh designer: <a href="http://www.mls.sci.hiroshima-u.ac.jp/smg/PITChdesignerv1/index.html" target="_blank">version 1.0</a></h5>
+            <h5>*We do not recommend using Internet Explorer to use PITCh designer 2.0.</h5>
+        </div>
+
+        <!--Input Form-->
+
+        <h3>1. Enter nucleotide sequence</h3>
+
+        <!--配列入力-->
+        <form class="inputform">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="exampleTextarea">Paste nucleotide sequence (100-15,000 bp) [FASTA format]:</label><span id="inputSeqError" style="font-weight:bold;color:#ff0000;"></span>
+                        <textarea class="form-control" id="inputFASTA" name="inputFASTA" placeholder="Sequence (FASTA format)" rows="12" onclick='this.select(0,this.value.length)'>
+>sample sequence
+GTGACGTTTCAACACAGACCTGAGGGAGGGAGAGAGCCCCCAAGAGGAACACAGCACAGGCTCTGGAGTGGCGGCAGGAACCAGACCCCAGGGGGTACAT
+GGTCTCACTCAGGATCACACGGACAGGCTTGGAACCCACATCTGCCACCCACCCCTGAGGGGCCCAGGCCCTGGGGACTCACAGGACAGAGGGCTCCGGC
+AGCTTCGGGGAGGGGGTCGGGGTAATTCTGGCAAGACGGAGCTCCTTGGCCTGTGTGGAGAGGAGAAGGGGAGGAAGGGGCAGTTCCCTCGACTGGGCAG
+GGGCCTGGGCCTGGACCCGGCCCAACCCTCACTCACCTGAGTGGAGGTCCCTTCCAGCCAGGAGGAGGAAGCCGAGCGCTGCAGCCCAGCCCCAGGGGCT
+CCCTCCGCTGTCCGCCTTTCAGGGGGACCCAGGGCACCAGAACTCCCTGTCTTCAGGAGGCCAAAGCGCCTGGAGAAGGGGGCCTCTTCAAGCTGCTGGG
+AGAAGGAGGAGGTCTCAGTTAGAGAGAAAGGATCCCTCTTCTCAGACCTCAAGGGTTAGCCCCCAAAGGACTGCAACAAACTACAATTCCCATCAGCCCC
+CGGGGCAGGCACAGCCTAAAAAGGAAGCCGGTTGTCCAGGACGACTCTGGGAACTATAGTCTTCCCCCTATCTGCCCCTGCCAGAGGTTCACAGGCTGTA
+TGGAATCCCACCTCCGGGCCCTCCCAGCCTCACAGGACCTCTCAGGGCATCCACTCACCACGGGACTCTTAGGGCTGGGGTGCGGCGGGGAGGAGACGCC
+ATTGAGGGTTCTGGGTTCTGCAGGGGGTGGTTCTGTGATGTGGGAACACCGGGCAGGTCACAGAAGATGCCAGTTGCCTCTAGATTCAGAG
+			</textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <!--frameの指定-->
+                    <div class="col-sm-4">
+                        <script>
+                            $(document).ready(function() {
+                                //ポップオーバー
+                                var image = 'Reading frame<br><img src="images/ReadingFrame.png">';
+                                $('#selectFrame').popover({
+                                    placement: 'top',
+                                    content: image,
+                                    html: true,
+                                    trigger: 'hover'
+                                });
+                                //selectMHMethodsとの連動処理
+                                $('#selectFrame').trigger('change');
+                                $(document).on('change', '#selectFrame', function() {
+                                    if ($("#selectFrame").val() === "noframe") {
+                                        $("#selectMHMethods").prop("disabled", true);
+                                    } else {
+                                        $("#selectMHMethods").prop("disabled", false);
+                                    }
+                                })
+                            });
+                        </script>
+                        <div class="form-group">
+                            <label for="ReadingFrame">Reading frame:</label>
+                            <select class="form-control" id="selectFrame">
+			    	<option value="0" selected>Frame 1</option>
+			    	<option value="1">Frame 2</option>
+			    	<option value="2">Frame 3</option>
+						<option value="noframe">No frame</option>
+			  	</select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <!--microhomology 設計方法-->
+                        <script>
+                            $(document).ready(function() {
+                                var image = 'C-insertion method<br><img src="images/5\'-C_Insertion_Method.png"><br><br>Codon deletion method<br><img src="images/Codon_Deletion_Method.png">';
+                                $('#selectMHMethods').popover({
+                                    placement: 'top',
+                                    content: image,
+                                    html: true,
+                                    trigger: 'hover'
+                                });
+                            });
+                        </script>
+                        <div name="inputMHArchitectureForm" class="form-group">
+                            <label for="PresetArchitecture">Adjustment of reading frame:</label>
+                            <select class="form-control" id="selectMHMethods">
+						<option value="C-insertion">C-insertion method</option>
+			  		<option value="codon-deletion">Codon deletion method</option>
+			  	</select>
+                        </div>
+                    </div>
+
+                    <!--knock-in targeting vector 選択-->
+                    <div class="col-sm-4">
+                        <script>
+                            $(document).ready(function() {
+                                var image = 'EGFP2APuroR (Sakuma et al.,2016)<br><img src="images/EGFP2APuroR.png"><br><br>CMV-EGFP2APuroR-polyA (Nakamae et al., 2017)<br><img src="images/CMV-EGFP2APuroR.png">';
+                                $('#selectKIvectors').popover({
+                                    placement: 'top',
+                                    content: image,
+                                    html: true,
+                                    trigger: 'hover'
+                                });
+                            });
+                        </script>
+                        <div name="inputKIvectorForm" class="form-group">
+                            <label for="KITAVector">Knock-in cassette:</label>
+                            <select class="form-control accordion-dropdpwn" id="selectKIvectors" rel="popover" data-content="" title="vector option">
+                                    <option value="EGFP2APuroR">EGFP2APuroR (Sakuma et al.,2016)</option>
+                                    <option value="CMV-EGFP2APuroR">CMV-EGFP2APuroR-polyA (Nakamae et al., 2017)</option>
+                                    <option value="UserSet" data-parent="#accordion">User defined insert</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="accordion" id="accordion">
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#UserSet"></a>
+                                </div>
+                                <div class="accordion-body collapse" id="UserSet">
+                                    <div class="accordion-inner">
+                                        <!--配列入力-->
+                                        <form class="inputform">
+                                            <div class="form-group">
+                                                <label for="exampleTextarea">Paste insert sequence (20-15,000 bp) [FASTA format]:</label><span id="inputInsertError" style="font-weight:bold;color:#ff0000;"></span>
+                                                <textarea class="form-control" id="inputInsert" name="inputInsert" placeholder="Sequence (FASTA format)" rows="12" onclick='this.select(0,this.value.length)'>
+> User defined insert
+atggtgagcaagggcgaggagctgttcaccggggtggtgcccatcctggtcgagctggacggcgacgtaaacggccacaagttcagcgtgtccggcgagg
+gcgagggcgatgccacctacggcaagctgaccctgaagttcatctgcaccaccggcaagctgcccgtgccctggcccaccctcgtgaccaccctgaccta
+cggcgtgcagtgcttcagccgctaccccgaccacatgaagcagcacgacttcttcaagtccgccatgcccgaaggctacgtccaggagcgcaccatcttc
+ttcaaggacgacggcaactacaagacccgcgccgaggtgaagttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgacttcaaggagg
+acggcaacatcctggggcacaagctggagtacaactacaacagccacaacgtctatatcatggccgacaagcagaagaacggcatcaaggtgaacttcaa
+gatccgccacaacatcgaggacggcagcgtgcagctcgccgaccactaccagcagaacacccccatcggcgacggccccgtgctgctgcccgacaaccac
+tacctgagcacccagtccgccctgagcaaagaccccaacgagaagcgcgatcacatggtcctgctggagttcgtgaccgccgccgggatcactctcggca
+tggacgagctgtacaagtaa
+                            </textarea>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <!--leftmicrohomologyの長さ指定-->
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="LMH">Length of left microhomology (10-40 bp):</label>
+                            <input type="text" class="form-control" id="LeftMHlen" name="LeftMHlen" size="10" maxlength="20" value="40">
+                            <span id="inputLMHError" style="font-weight:bold;color:#ff0000;"></span>
+                        </div>
+                    </div>
+
+                    <!--3'末のPAM認識配列の指定-->
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="PAMSeq">PAM sequence requirement:</label>
+                            <input type="text" class="form-control" id="pam" name="pam" placeholder="PAM" value='NGG'>
+                            <span id="inputPAMError" style="font-weight:bold;color:#ff0000;"></span>
+                            <span id="Cpf1note" style="color:#505050;">*PITCh system using Cpf1 is unconfirmed</span>
+                        </div>
+                    </div>
+
+                    <!--rightmicrohomologyの長さ指定-->
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="RMH">Length of right microhomology (10-40 bp):</label>
+                            <input type="text" class="form-control" id="RightMHlen" name="RightMHlen" size="10" maxlength="20" value="40">
+                            <span id="inputRMHError" style="font-weight:bold;color:#ff0000;"></span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!--select species-->
+                <div class="row">
+                    <div class="form-group">
+                        <label for="Species">Species:</label>
+                        <div class="col-sm-12">
+                            <div id="carousel-species-generic" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-species-generic" data-slide-to="0" class="active"></li>
+                                </ol>
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <p class="text-center"><img src="images/species/DNA.png" alt="" height="150" id="species_image"></p>
+                                        <div class="carousel-caption" id="species_name">none</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <select class="form-control accordion-dropdpwn" name=db id="species"></select>
+                        </div>
+                    </div>
+                    <!--form-group-->
+                </div>
+                <!--row-->
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <span id="AdOptionError" style="font-weight:bold;color:#ff0000;"></span>
+                    <p>
+                        <a class="btn btn-secondary" data-toggle="collapse" href="#Addvanced_options" aria-expanded="false" aria-controls="Addvanced_options">
+    Advanced options >>>
+  </a>
+                    </p>
+                </div>
+            </div>
+            <div class="collapse" id="Addvanced_options">
+                <div class="row">
+                    <div class="col-sm-4" align="center">
+                    </div>
+                    <div class="col-sm-4" align="center">
+                        Tm value
+                    </div>
+                    <div class="col-sm-4" align="center">
+                        CG %
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" align="center">
+                        Primers for genotyping :
+                    </div>
+                    <div class="col-sm-2" align="center">
+                        <div class="form-group">
+                            <label for="GPTmMin">Min (0-100 ℃):</label>
+                            <input type="text" class="form-control" id="GPTmMin" name="GPTmMin" size="10" maxlength="20" value="62">
+                            <span id="inputGPTmMinError" style="font-weight:bold;color:#ff0000;"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" align="center">
+                        <div class="form-group">
+                            <label for="GPTmMax">Max (0-100 ℃):</label>
+                            <input type="text" class="form-control" id="GPTmMax" name="GPTmMax" size="10" maxlength="20" value="68">
+                            <span id="inputGPTmMaxError" style="font-weight:bold;color:#ff0000;"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" align="center">
+                        <div class="form-group">
+                            <label for="GPCGMin">Min (0-100 %):</label>
+                            <input type="text" class="form-control" id="GPCGMin" name="GPCGMin" size="10" maxlength="20" value="20">
+                            <span id="inputGPCGMinError" style="font-weight:bold;color:#ff0000;"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" align="center">
+                        <div class="form-group">
+                            <label for="GPCGMax">Max (0-100 %):</label>
+                            <input type="text" class="form-control" id="GPCGMax" name="GPCGMax" size="10" maxlength="20" value="80">
+                            <span id="inputGPCGMaxError" style="font-weight:bold;color:#ff0000;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+
+
+            </form>
+            <!--Submit Form---------------------------------------------------------------->
+            <br>
+            <!--Submit-->
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <!--入力された情報で処理を開始-->
+                    <div class="submitbtn">
+                        <button type="submit" class="btn btn-primary btn-lg" onclick="inputFormData(true);">Submit</button>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+            <!--Visualizing---------------------------------------------------------------->
+
+            <!--インプットした配列をボタンにして表示-->
+            <hr>
+            <p id="seq_image"></p>
+
+            <!--Result--------------------------------------------------------------------->
+
+            <!--結果を表示-->
+            <hr>
+            <p id="designCRISPITCh"></p>
+            <hr>
+            <!--OPTION-->
+            <!--genotyping用プライマーイメージ-->
+            <span class='container' id='genomeviewer'></span>
+            <span id="resultmodal"></span>
+
+            <!--fotter--------------------------------------------------------------------->
+            <hr>
+            <br>
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="./about.html">About</a>
+                                </li>
+                                <li class="footer-menu-divider">&sdot;</li>
+                                <li>
+                                    <a href="./index.html">PITCh designer 2.0</a>
+                                </li>
+                                <li class="footer-menu-divider">&sdot;</li>
+                                <li>
+                                    <a href="./contact.html">Contact</a>
+                                </li>
+                            </ul>
+                            <br>
+                            <hr>
+                            <br>
+                            <p class=s>
+                                <a href='.'>PITCh designer</a> |
+                                <a href='http://www.mls.sci.hiroshima-u.ac.jp/smg/index.html'>
+											Molecular Genetics Laboratory, Department of Mathematical and Life Sciences, Graduate School of Science, Hiroshima University
+										</a><br> This page is licensed under a
+                                <a target='_blank' href='http://creativecommons.org/licenses/by/2.1/jp/deed.en'>
+										Creative Commons Attribution 2.1 Japan License</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </div>
+    <!-- GoogleAnalytics -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-96900517-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>

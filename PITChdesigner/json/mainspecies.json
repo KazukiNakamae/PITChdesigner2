@@ -1,0 +1,20 @@
+var mainspecies = [
+    { 'value': 'hg38', 'info': 'Human(Homosapiens)genome,GRCh38hg38(Dec,2013)' },
+    { 'value': 'hg19', 'info': 'Human(Homosapiens)genome,GRCh37hg19(Feb,2009)' },
+    { 'value': 'mm10', 'info': 'Mouse(Musmusculus)genome,GRCm38mm10(Dec,2011)' },
+    { 'value': 'rn6', 'info': 'Rat(Rattusnorvegicus)genome,RGSC6.0rn6(Jul,2014)' },
+    { 'value': 'calJac3', 'info': 'Marmoset(Callithrixjacchus)genome,WUGSC3.2calJac3(Mar,2009)' },
+    { 'value': 'susScr3', 'info': 'Pig(Susscrofa)genome,SGSCSscrofa10.2susScr3(Aug,2011)' },
+    { 'value': 'galGal4', 'info': 'Chicken(Gallusgallus)genome,ICGSCGallus_gallus-4.0galGal4(Nov,2011)' },
+    { 'value': 'Xentr9', 'info': 'Frog(Xenopustropicalis)genome,XenBaseJGI9.0' },
+    { 'value': 'Xenla9', 'info': 'Frog(Xenopuslaevis)genome,XenBaseJGI9.1' },
+    { 'value': 'danRer7', 'info': 'Zebrafish(Daniorerio)genome,Zv9danRer7(Jul,2010)' },
+    { 'value': 'ci2', 'info': 'Seasquirt(Cionaintestinalis)genome,JGI2.1ci2(Mar,2005)' },
+    { 'value': 'dm6', 'info': 'Fruitfly(Drosophilamelanogaster)genome,BDGPRelease6+ISO1MTdm6(Aug,2014)' },
+    { 'value': 'ce10', 'info': 'Roundworm(Caenorhabditiselegans)genome,WS220ce10(Oct,2010)' },
+    { 'value': 'TAIR10', 'info': 'Thalecress(Arabidopsisthaliana)genome,TAIR10(Nov,2010)' },
+    { 'value': 'rice', 'info': 'Rice(Oryzasativassp.japonica)genome,Os-Nipponbare-Reference-IRGSP-1.0(Oct,2011)' },
+    { 'value': 'sorBic', 'info': 'Sorghum(Sorghumbicolor)genome,Sorghumbicolorv2.1(May,2013)' },
+    { 'value': 'sacCer3', 'info': 'Buddingyeast(Saccharomycescerevisiae)S288Cgenome,sacCer3(Apr,2011)' },
+    { 'value': 'pombe', 'info': 'Fissionyeast(Schizosaccharomycespombe)972h-genome,ASM294v2(Nov,2007)' }
+]
