@@ -401,7 +401,7 @@ makeSummary.prototype.inputSummary = function(designCRISPITChInstamce) {
             innerright: designCRISPITChInstamce.pickGPrimer("innerright", 3)
         }
         this.shownSummary = "Name\tNo.\tsgRNA orientation\tsgRNA target sequence (plus strand)\t" +
-            "Left microhomology\tRight microhomology\t5' forward primer\t5' reverse primer\t" +
+            "Left microhomology\tRight microhomology\tDesirable labels\tUndesirable labels\t5' forward primer\t5' reverse primer\t" +
             "3' forward primer\t3' reverse primer\t5' sequence of knockin vector\t3' sequence of knockin vector\t" +
             "Sence oligonucleotide for constructing pU6 sgRNA expression vector\tAntisence oligonucleotide for constructing pU6 sgRNA expression vector\t" +
             "Outer left primer(1)\tOuter left primer(2)\tOuter left primer(3)\t" +
@@ -416,6 +416,8 @@ makeSummary.prototype.inputSummary = function(designCRISPITChInstamce) {
                 designCRISPITChInstamce.retrieveDesign("gRNAbindingarray", countDraft).join("") + "\t" +
                 designCRISPITChInstamce.retrieveDesign("LeftMHarrayOnly", countDraft).join("") + "\t" +
                 designCRISPITChInstamce.retrieveDesign("RightMHarray", countDraft).join("") + "\t" +
+                getDesirableFeature(designCRISPITChInstamce.retrieveDesign("Direction", countDraft), designCRISPITChInstamce.retrieveDesign("gRNAbindingarray", countDraft).join("")).replace(',', ';') + "\t" +
+                getUndesirableFeature(designCRISPITChInstamce.retrieveDesign("Direction", countDraft), designCRISPITChInstamce.retrieveDesign("gRNAbindingarray", countDraft).join("")).replace(',', ';') + "\t" +
                 designCRISPITChInstamce.retrieveDesign("5fwdprimer", countDraft).join("") + "\t" +
                 designCRISPITChInstamce.retrieveDesign("5revprimer", countDraft).join("") + "\t" +
                 designCRISPITChInstamce.retrieveDesign("3fwdprimer", countDraft).join("") + "\t" +
@@ -1671,6 +1673,8 @@ designKnockInSeq = function(targetBase) {
                     "&ensp;<a href='https://crispr.dbcls.jp/detail/en/" + bePITChDesigner.getStatus("species") + "/" + getIUBgRNA(submitedSequence, countDraft) + "' target='_blank'><br>>>>Check sgRNA specificity against genomic DNA using CRISPRdirect</a></td></tr>" +
                     "<tr><td class='danger'>Left microhomology</td><td class='danger'>" + submitedSequence.retrieveDesign("LeftMHarrayOnly", countDraft).join("") + "</td></tr>" +
                     "<tr><td class='info'>Right microhomology</td><td class='info'>" + submitedSequence.retrieveDesign("RightMHarray", countDraft).join("") + "</td></tr>" +
+                    "<tr><td class='warning'>Desirable labels</td><td class='warning'>" + getDesirableFeature(submitedSequence.retrieveDesign("Direction", countDraft), submitedSequence.retrieveDesign("gRNAbindingarray", countDraft).join("")) + "</td></tr>" +
+                    "<tr><td class='warning'>Undesirable labels</td><td class='warning'>" + getUndesirableFeature(submitedSequence.retrieveDesign("Direction", countDraft), submitedSequence.retrieveDesign("gRNAbindingarray", countDraft).join("")) + "</td></tr>" +
                     "<tr><td class='warning'>5'&ensp;forward primer</td><td class='warning'>" + submitedSequence.retrieveDesign("5fwdprimer", countDraft).join("") + " (Tm : " + calcPrimer(submitedSequence.retrieveDesign("5fwdprimerbind", countDraft).join("")) + ")" + "</td></tr>" +
                     "<tr><td class='warning'>5'&ensp;reverse primer</td><td class='warning'>" + submitedSequence.retrieveDesign("5revprimer", countDraft).join("") + " (Tm : " + calcPrimer(submitedSequence.retrieveDesign("5revprimer", countDraft).join("")) + ")" + "</td></tr>" +
                     "<tr><td class='warning'>3'&ensp;forward primer</td><td class='warning'>" + submitedSequence.retrieveDesign("3fwdprimer", countDraft).join("") + " (Tm : " + calcPrimer(submitedSequence.retrieveDesign("3fwdprimer", countDraft).join("")) + ")" + "</td></tr>" +

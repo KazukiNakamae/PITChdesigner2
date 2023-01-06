@@ -1,0 +1,92 @@
+.topnav {
+    font-size: 14px;
+}
+
+.lead {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.body-pageheader {
+    padding: 7rem 15px 3rem 15px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../images/intro-bg-small.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.body-pageheader .container {
+    position: relative;
+}
+
+.body-pageheader h1 {
+    font-size: 60px;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+.body-pageheader p {
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 300;
+    color: #FFFFFF;
+}
+
+.inputform {
+    border: 3px solid #e6e6e6;
+    background: #fff;
+    padding: 10px;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.submitbtn {
+    text-align: center;
+}
+
+body {
+    background-color: #FFFFFF;
+    background-size: contain;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+canvas {
+    border: 1px solid #e6e6e6;
+}
+
+#dbSNP {
+    background-color: rgba(254, 223, 225, 0.9);
+}
+
+
+}
+#codongroup {
+    background-color: #ec6d71;
+    padding: 100
+    /*上*/
+    
+    100
+    /*右*/
+    
+    100
+    /*下*/
+    
+    100
+    /*左*/
+    
+    ;
+}
+.Bbuttom {
+    border-color: #aa4c8f;
+    text-align: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+.carousel-indicators li {
+    visibility: hidden;
+}
