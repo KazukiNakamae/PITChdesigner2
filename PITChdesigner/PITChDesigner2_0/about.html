@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="PITCh designer 2.0 is a free online tool to design gRNAs & homology arms for marker gene knock-in.">
+    <meta name="description" content="PITCh designer 2.1 is a free online tool to design gRNAs & homology arms for marker gene knock-in.">
     <meta name="author" content="Kazuki Nakamae">
 
 
@@ -55,7 +55,7 @@
                         <a href="./about.html">About</a>
                     </li>
                     <li>
-                        <a href="./index.html">PITCh designer 2.0</a>
+                        <a href="./index.html">PITCh designer 2.1</a>
                     </li>
                     <li>
                         <a href="./contact.html">Contact</a>
@@ -164,13 +164,13 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Web Application : <br>"<a target="_blank" href="./index.html">PITCh designer 2.0</a>"</h2>
+                    <h2 class="section-heading">Web Application : <br>"<a target="_blank" href="./index.html">PITCh designer 2.x</a>"</h2>
                     <p class="lead">
                         <span class="strong">
-                      PITCh designer 2.0 is a free online tool to design<br>
+                      PITCh designer 2.x is a free online tool to design<br>
                       sgRNA and homology arms for gene knock-in.</span>
                         <br><br> &ensp;This tool <span class="strong">only needs</span> sequence around the target region. <span class="strong">After the sequence submission, followed by the selection of the target base, the application automatically designs sgRNA, microhomologies, and primers for constructing a donor vector for PITCh knock-in and for genotyping</span>.<br><br>
-                        <a target="_blank" href="./index.html">Go to the PITCh designer 2.0 >>></a>
+                        <a target="_blank" href="./index.html">Go to the PITCh designer 2.x >>></a>
                     </p>
                     <br>
                     <h2>Procedure</h2>
@@ -188,7 +188,7 @@
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <a href="./index.html">
-                    PITCh designer 2.0 :
+                    PITCh designer 2.x :
                     <img class="img-responsive" src="images/overview.png" alt="">
                   </a>
                     <br><br> 1. Paste sequence :
@@ -251,7 +251,7 @@
                     <div class="media">
                         <div class="media-body">
                             <h4 class="media-heading">2 : Adjustment of reading frame</h4>
-                            &ensp;PITCh designer 2.0 offers two methods to prevent frameshifting.<br><br> Options :
+                            &ensp;PITCh designer 2.x offers two methods to prevent frameshifting.<br><br> Options :
                             <ul>
                                 <li>5'C-insertion (default)<br><br> C-insertion mode fills in cytosine base(s) to adjust the reading frame.<br> The number of fill-in bases depends on the selected frame and the position of knock-in.</li>
                             </ul>
@@ -600,7 +600,7 @@
             <!-- hidden
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
-                    <h3>New function from version 2.0</h3>
+                    <h3>New function from version 2.x</h3>
                 </div>
             </div>
             <div class="row">
@@ -630,7 +630,7 @@
                 <div class="col-lg-5 col-sm-6">
                     <h3>Primer viewer <img src="images/new_version2.0.png" alt=""></h3>
                     <p class="lead">
-                        &ensp;The PITCh designer 2.0 can not only automatically select best primer pair for genotyping but help users to manually choose it on this viewer ( as shown in the right figure ).
+                        &ensp;The PITCh designer 2.x can not only automatically select best primer pair for genotyping but help users to manually choose it on this viewer ( as shown in the right figure ).
                         <br>&ensp;This viewer can show primers for left junction / right junction / out-out PCR. By clicking on the arrow button on the left button form, you can change the primer type.
                         <br><br>&ensp;After clicking the left button for selecting primer pair, the viewer displays sequence information at the bottom of the graphical map. The sequence information can also be download by clicking the "DOWNLOAD SEQENCE"
                         button.
@@ -639,6 +639,23 @@
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     Primer viewer :
                     <img class="img-responsive" src="images/primerviewer.png" alt="">
+                </div>
+            </div>
+            <!-- /.row -->
+            <br>
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <h3>Efficiency annotation <img src="images/new_version2.1.png" alt=""></h3>
+                    <p class="lead">
+                        &ensp;The PITCh designer 2.1 can analyze the knock-in design and adds "efficiency annotations" to the knock-in design. We showed that the group of annotated knock-in design significantly achieved the high efficiency of precise knock-in compared with the no annotation group in HEK293T cells ( as shown in the right figure ).
+                        <br>&ensp;The sequence features, which contribute to the gain of precise knock-in efficiency, will be shown in Desirable labels. On the other hand, Undesirable labels indicate the feature causing less knock-in efficiency.
+                        <br><br>&ensp;The features were determined based on our previous research (<a href="https://www.biorxiv.org/content/10.1101/2022.06.27.496697v1">Nakamae et al., 2022</a>). The PITCh designer searches sequence context resulting in the mutation patterns affecting the knock-in efficiency.
+                    </p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    Efficiency annotation:
+                    <img class="img-responsive" src="images/design_annotation.png" alt="">
+                    <img class="img-responsive" src="images/annotation_stat.png" alt="">
                 </div>
             </div>
             <!-- /.row -->
@@ -661,7 +678,7 @@
                 <div class="col-lg-6">
                     <ul class="list-inline banner-social-buttons">
                         <li>
-                            <a href="./index.html" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-hand-right"></i> <span class="network-name">Go to the PITCh designer 2.0</span></a>
+                            <a href="./index.html" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-hand-right"></i> <span class="network-name">Go to the PITCh designer 2.x</span></a>
                         </li>
                     </ul>
                 </div>
@@ -684,7 +701,7 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="./index.html">PITCh designer 2.0</a>
+                            <a href="./index.html">PITCh designer 2.1</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
@@ -695,9 +712,9 @@
                     <hr>
                     <br>
                     <p class=s>
-                        <a href='./index.html'>PITCh designer 2.0</a> |
-                        <a href='http://www.mls.sci.hiroshima-u.ac.jp/smg/index.html'>
-                  			Molecular Genetics Laboratory, Department of Mathematical and Life Sciences, Graduate School of Science, Hiroshima University
+                        <a href='./index.html'>PITCh designer 2.1</a> |
+                        <a href='https://smg.hiroshima-u.ac.jp'>
+                            Molecular Genetics Laboratory, Graduate School of Integrated Sciences for Life, Hiroshima University, Japan
                   		</a><br> This page is licensed under a
                         <a target='_blank' href='http://creativecommons.org/licenses/by/2.1/jp/deed.en'>
                   		Creative Commons Attribution 2.1 Japan License</a>.
